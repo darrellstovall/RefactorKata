@@ -6,8 +6,15 @@ namespace RefactorKata
 {
     internal class Program
     {
-        private static voic Main (string[] args) 
+        private static void Main (string[] args)
         {
+
+            var products = GetProducts();
+
+            foreach (var product in products)
+            {
+                Console.WriteLine("This product is called: " + product.Name);
+            }
             using var conn =
             var conn = new SqlConnection("Server=.;Database=myDataBase;User Id=myUsername;Password = myPassword;");
 
@@ -30,10 +37,7 @@ namespace RefactorKata
 
             conn.Dispose();
 
-            foreach (var product in products)
-            {
-                Console.WriteLine(products[i].Name);
-            }
+           
         }
     }
     public class Product
