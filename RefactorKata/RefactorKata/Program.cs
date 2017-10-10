@@ -21,7 +21,6 @@ namespace RefactorKata
 
             //TODO: Replace with Dapper
 
-
             while (reader.Read())
             {
                 var prod = new Product {Name = reader["Name"].ToString()};
