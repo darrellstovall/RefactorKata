@@ -16,13 +16,14 @@ namespace RefactorKata
             }
         }
         private static IEnumerable<Product> GetProducts()
-        { 
-        using var conn =
-            var conn = new SqlConnection("Server=.;Database=myDataBase;User Id=myUsername;Password = myPassword;");
+        {
+            using (var conn =
+                new SqlConnection("Server=.;Database=myDataBase;User Id=myUsername;Password = myPassword;")) ;
 
             var cmd = conn.CreateCommand();
             cmd.CommandText = "select * from Products";
             /*
+             * Cody's comment:  "Is this line necessary?"
              * cmd.CommandText = "Select * from Invoices";
              */
             var reader = cmd.ExecuteReader();
@@ -32,18 +33,12 @@ namespace RefactorKata
 
             while (reader.Read())
             {
-                var prod = new Product {Name = reader["Name"].ToString()};
+                var prod = new Product {Name = reader["Name"].ToString() };
                 products.Add(prod);
             }
             Console.WriteLine("Products Loaded!");
 
-            conn.Dispose();
-
-           
+            return products;
         }
-    }
-    public class Product
-    {
-        public string Name { get; set; };
     }
 }
