@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace RefactorKata
+﻿namespace RefactorKata
 {
-    class RefactorKotaSecondClass
+    public class Product
     {
+        public string Name { get; set; }
     }
 }
